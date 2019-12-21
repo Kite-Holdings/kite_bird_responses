@@ -4,6 +4,7 @@ import 'package:kite_bird_responses/controllers/logins_controller.dart';
 import 'package:kite_bird_responses/controllers/requested_opts_controller.dart';
 import 'package:kite_bird_responses/controllers/requests_controller.dart';
 import 'package:kite_bird_responses/controllers/responses_controller.dart';
+import 'package:kite_bird_responses/controllers/transactions_controller.dart';
 
 import 'kite_bird_responses.dart';
 
@@ -58,6 +59,16 @@ class KiteBirdResponsesChannel extends ApplicationChannel {
     router
       .route("/requests")
       .link(()=> RequestController());
+    router
+      .route("/cardTransactions")
+      .link(()=> CardController());
+    router
+      .route("/mpesaTransactions")
+      .link(()=> MpesaController());
+    router
+      .route("/walletTransactions")
+      .link(()=> WalletController());
+    
 
     return router;
   }
