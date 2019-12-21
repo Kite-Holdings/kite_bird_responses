@@ -1,3 +1,10 @@
+import 'package:kite_bird_responses/controllers/accounts_controller.dart';
+import 'package:kite_bird_responses/controllers/error_responses.dart';
+import 'package:kite_bird_responses/controllers/logins_controller.dart';
+import 'package:kite_bird_responses/controllers/requested_opts_controller.dart';
+import 'package:kite_bird_responses/controllers/requests_controller.dart';
+import 'package:kite_bird_responses/controllers/responses_controller.dart';
+
 import 'kite_bird_responses.dart';
 
 /// This type initializes an application.
@@ -33,6 +40,24 @@ class KiteBirdResponsesChannel extends ApplicationChannel {
       .linkFunction((request) async {
         return Response.ok({"key": "value"});
       });
+    router
+      .route("/requestedOtps")
+      .link(()=> RequestedOtpsController());
+    router
+      .route("/accounts")
+      .link(()=> AccountsController());
+    router
+      .route("/logins")
+      .link(()=> LoginsController());
+    router
+      .route("/errorResponses")
+      .link(()=> ErrorResponsesController());
+    router
+      .route("/responses")
+      .link(()=> ResponsesController());
+    router
+      .route("/requests")
+      .link(()=> RequestController());
 
     return router;
   }
