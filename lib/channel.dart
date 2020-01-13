@@ -48,6 +48,10 @@ class KiteBirdResponsesChannel extends ApplicationChannel {
       .route("/accounts")
       .link(()=> AccountsController());
     router
+      .route("/merchantAccounts")
+      .link(()=> MerchantAccountsController());
+    
+    router
       .route("/logins")
       .link(()=> LoginsController());
     router
